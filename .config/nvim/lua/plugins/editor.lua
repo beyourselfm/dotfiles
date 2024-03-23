@@ -1,6 +1,5 @@
 return {
 	{
-		enabled = false,
 		"folke/flash.nvim",
 		---@type Flash.Config
 		opts = {
@@ -16,23 +15,23 @@ return {
 	{
 		"echasnovski/mini.hipatterns",
 		event = "BufReadPre",
-		opts = {
-			highlighters = {
-				hsl_color = {
-					pattern = "hsl%(%d+,? %d+%%?,? %d+%%?%)",
-					group = function(_, match)
-						local utils = require("solarized-osaka.hsl")
-						--- @type string, string, string
-						local nh, ns, nl = match:match("hsl%((%d+),? (%d+)%%?,? (%d+)%%?%)")
-						--- @type number?, number?, number?
-						local h, s, l = tonumber(nh), tonumber(ns), tonumber(nl)
-						--- @type string
-						local hex_color = utils.hslToHex(h, s, l)
-						return MiniHipatterns.compute_hex_color_group(hex_color, "bg")
-					end,
-				},
-			},
-		},
+		-- opts = {
+		-- 	highlighters = {
+		-- 		hsl_color = {
+		-- 			pattern = "hsl%(%d+,? %d+%%?,? %d+%%?%)",
+		-- 			group = function(_, match)
+		-- 				local utils = require("solarized-osaka.hsl")
+		-- 				--- @type string, string, string
+		-- 				local nh, ns, nl = match:match("hsl%((%d+),? (%d+)%%?,? (%d+)%%?%)")
+		-- 				--- @type number?, number?, number?
+		-- 				local h, s, l = tonumber(nh), tonumber(ns), tonumber(nl)
+		-- 				--- @type string
+		-- 				local hex_color = utils.hslToHex(h, s, l)
+		-- 				return MiniHipatterns.compute_hex_color_group(hex_color, "bg")
+		-- 			end,
+		-- 		},
+		-- 	},
+		-- },
 	},
 
 	{
@@ -56,8 +55,21 @@ return {
 				build = "make",
 			},
 			"nvim-telescope/telescope-file-browser.nvim",
+
+			"nvim-lua/popup.nvim",
+			"nvim-lua/plenary.nvim",
+			"nvim-telescope/telescope-media-files.nvim",
 		},
 		keys = {
+			{
+				"<leader>fm",
+				function()
+					local telescope = require("telescope")
+
+					telescope.extensions.media_files.media_files()
+				end,
+				desc = "Find Media files",
+			},
 			{
 				"<leader>fP",
 				function()
@@ -204,10 +216,20 @@ return {
 						},
 					},
 				},
+				media_files = {
+					filetypes = {
+						"png",
+						"jpg",
+						"svg",
+						"jpeg",
+						"webp",
+					},
+				},
 			}
 			telescope.setup(opts)
 			require("telescope").load_extension("fzf")
 			require("telescope").load_extension("file_browser")
+			require("telescope").load_extension("media_files")
 		end,
 	},
 }

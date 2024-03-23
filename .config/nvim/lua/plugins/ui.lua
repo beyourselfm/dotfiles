@@ -63,12 +63,7 @@ return {
 	-- animations
 	{
 		"echasnovski/mini.animate",
-		event = "VeryLazy",
-		opts = function(_, opts)
-			opts.scroll = {
-				enable = false,
-			}
-		end,
+		enabled = false,
 	},
 
 	-- buffer line
@@ -120,28 +115,80 @@ return {
 		end,
 	},
 
-	{
-		"folke/zen-mode.nvim",
-		cmd = "ZenMode",
-		opts = {
-			plugins = {
-				gitsigns = true,
-				tmux = true,
-				kitty = { enabled = false, font = "+2" },
-			},
-		},
-		keys = { { "<leader>z", "<cmd>ZenMode<cr>", desc = "Zen Mode" } },
-	},
+	-- {
+	-- 	"folke/zen-mode.nvim",
+	-- 	cmd = "ZenMode",
+	-- 	opts = {
+	-- 		plugins = {
+	-- 			gitsigns = true,
+	-- 			tmux = true,
+	-- 			kitty = { enabled = false, font = "+2" },
+	-- 		},
+	-- 	},
+	-- 	keys = { { "<leader>z", "<cmd>ZenMode<cr>", desc = "Zen Mode" } },
+	-- },
 
 	{
 		"nvimdev/dashboard-nvim",
 		event = "VimEnter",
 		opts = function(_, opts)
 			local logo = [[
-        'Kiiro'
+          ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠿⣿⣿⣿⣿⠟⠈⠋⠉⠙⠛⣛⣿⡯⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
+          ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡟⠋⠄⠉⠄⠂⠉⠁⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⢀⣭⣿⣿⣿⣿⣿⣿⣿⣿
+          ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠋⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⣴⡿⣿⣿⣿⣿⣿⣿⣿⣿
+          ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡟⠈⠏⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠉⢡⣿⣿⣿⣿⣿⣿⣿⣿
+          ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡆⠁⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⣼⣿⣿⣿⣿⣿⣿⣿⣿
+          ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠿⠂⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⢸⣿⣿⣿⣿⣿⣿⣿⣿⣿
+          ⣿⣿⣿⣿⣿⣿⣿⣿⣿⢏⠅⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⣀⠛⣓⣄⠄⠄⠄⠄⠄⠐⣱⣿⣿⣿⣿⣿⣿⣿⣿⣿
+          ⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⢰⠐⣡⣾⣿⣿⡀⠄⠄⣀⣤⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
+          ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⢀⣌⣾⣿⣿⢟⣼⣿⣷⣽⣻⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
+          ⣿⣿⣿⣿⣿⣿⣿⣿⣿⡟⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣟⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
+          ⣿⣿⣿⣿⣿⣿⣿⣿⣍⠁⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⣶⣀⠄⠄⠄⠙⣻⣿⣿⣿⣿⣿⣿⣿⣿⣷⡛⢯⣳⣽⣿⣿⣿⣿⣿⣿⣿⣿
+          ⣿⣿⣿⣿⣿⣿⣿⣿⢁⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⢋⣿⣧⣦⡄⣤⣶⣾⣿⣿⣿⣿⣿⣿⣿⡷⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
+          ⣿⣿⣿⣿⣿⣿⣿⣿⣷⣴⣄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠉⠛⠻⣿⣭⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
+          ⣿⣿⣿⣿⣿⣿⣿⣿⣟⣋⠁⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⣠⢰⣾⣿⣿⣷⣿⣿⣿⢿⣿⣿⣿⣟⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
+          ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣶⡂⣀⣀⣀⣀⣀⣀⣀⠰⠿⠿⠾⠿⠿⣿⣿⣿⣷⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
+          ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣧⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣾⣽⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
+          ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠋⠄⠈⠙⠿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣻⣿⡮⢍⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
+          ⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠟⠁⠄⠄⠄⠄⠄⠈⠙⠻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⢟⣽⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
+          ⣿⣿⣿⣿⣿⣿⣿⣿⠟⠁⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠉⠻⢿⣿⣿⣿⣿⣷⠿⣯⡟⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
+          ⣿⣿⣿⣿⣿⣿⣿⠋⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠈⠻⢿⣿⣿⡏⡿⣽⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
       ]]
-			logo = string.rep("\n", 8) .. logo .. "\n\n"
+			logo = string.rep("\n", 4) .. logo .. "\n\n"
 			opts.config.header = vim.split(logo, "\n")
+			opts.config.center = {
+				{
+					action = LazyVim.telescope("files"),
+					desc = " Find file",
+					icon = " ",
+					key = "f",
+				},
+				{
+					action = "ene | startinsert",
+					desc = " New file",
+					icon = " ",
+					key = "n",
+				},
+				{
+					action = "Telescope oldfiles",
+					desc = " Recent files",
+					icon = " ",
+					key = "r",
+				},
+				{
+					action = "Telescope live_grep",
+					desc = " Find grep",
+					icon = " ",
+					key = "g",
+				},
+
+				{
+					action = "qa",
+					desc = " Quit",
+					icon = " ",
+					key = "q",
+				},
+			}
 		end,
 	},
 }

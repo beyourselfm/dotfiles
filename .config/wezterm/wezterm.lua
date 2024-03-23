@@ -5,7 +5,7 @@ local config = {
 		weight = "Regular",
 	}),
 
-	color_scheme = "Catppuccin Mocha",
+	color_scheme = "Everforest Dark (Gogh)",
 	use_fancy_tab_bar = false,
 	hide_tab_bar_if_only_one_tab = true,
 	window_decorations = "RESIZE",

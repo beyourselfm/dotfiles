@@ -1,19 +1,14 @@
 return {
 	{
-		"catppuccin/nvim",
-		name = "catppuccin",
+		"sainnhe/everforest",
+		name = "everforest",
 		lazy = true,
 		priority = 1000,
 		opts = function()
 			return {
-				transparent = true,
-				flavour = "mocha", -- latte, frappe, macchiato, mocha
-				background = { -- :h background
-					light = "latte",
-					dark = "mocha",
-				},
-
-				no_italic = true, -- Force no italic
+				everforest_transparent_background = 1,
+				-- keywordStyle = { italic = false },
+				-- commentStyle = { italic = false },
 			}
 		end,
 	},
