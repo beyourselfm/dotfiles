@@ -32,7 +32,7 @@ return {
 			}
 		end,
 		opts = {
-			inlay_hints = { enabled = false },
+			inlay_hints = { enabled = true },
 			---@type lspconfig.options
 			servers = {
 				cssls = {},
@@ -42,6 +42,22 @@ return {
 					end,
 				},
 				tsserver = {
+					dependencies = {
+						"jose-elias-alvarez/typescript.nvim",
+						init = function()
+							require("lazyvim.util").lsp.on_attach(function(_, buffer)
+                -- stylua: ignore
+                -- vim.keymap.set( "n", "<leader>co", "TypescriptOrganizeImports", { buffer = buffer, desc = "Organize Imports" })
+								vim.keymap.set(
+									"n",
+									"<leader>cR",
+									"TypescriptRenameFile",
+									{ desc = "Rename File", buffer = buffer }
+								)
+							end)
+						end,
+					},
+
 					root_dir = function(...)
 						return require("lspconfig.util").root_pattern(".git")(...)
 					end,

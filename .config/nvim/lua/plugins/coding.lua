@@ -17,8 +17,12 @@ return {
 	-- Incremental rename
 	{
 		"smjonas/inc-rename.nvim",
-		cmd = "IncRename",
-		config = true,
+		enabled = false,
+		-- cmd = "IncRename",
+		--
+		-- config = function()
+		-- 	require("inc_rename").setup()
+		-- end,
 	},
 
 	-- Refactoring tool
@@ -93,5 +97,21 @@ return {
 		opts = function(_, opts)
 			table.insert(opts.sources, { name = "emoji" })
 		end,
+	},
+
+	{
+		"kylechui/nvim-surround",
+		version = "*", -- Use for stability; omit to use `main` branch for the latest features
+		event = "VeryLazy",
+		config = function()
+			require("nvim-surround").setup({
+				-- Configuration here, or leave empty to use defaults
+			})
+		end,
+	},
+	-- disable mini.surround, use nvim-surround instead
+	{
+		"mini.surround",
+		enabled = false,
 	},
 }
