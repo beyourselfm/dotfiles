@@ -181,7 +181,7 @@ return {
 						["n"] = {
 							-- your custom normal mode mappings
 							["t"] = actions.select_tab,
-							["h"] = fb_actions.goto_parent_dir,
+							["-"] = fb_actions.goto_parent_dir,
 							["/"] = function()
 								vim.cmd("startinsert")
 							end,

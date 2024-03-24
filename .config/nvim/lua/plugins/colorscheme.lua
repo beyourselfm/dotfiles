@@ -1,19 +1,16 @@
 return {
 	{
-		"catppuccin/nvim",
-		name = "catppuccin",
+		"rose-pine/neovim",
+		name = "rose-pine",
 		lazy = true,
 		priority = 1000,
 		opts = function()
 			return {
-				transparent = true,
-				background = { -- :h background
-					light = "latte",
-					dark = "mocha",
+				dark_variant = "moon",
+				styles = {
+					italic = false,
+					transparency = true,
 				},
-
-				no_underline = true, -- Force no underline
-				no_italic = true, -- Force no italic
 			}
 		end,
 	},
