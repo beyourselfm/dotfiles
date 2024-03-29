@@ -1,23 +1,5 @@
--- local discipline = require("craftzdog.discipline")
---
--- discipline.cowboy()
-
 local keymap = vim.keymap
 local opts = { noremap = true, silent = true }
-
--- Do things without affecting the registers
--- keymap.set("n", "x", '"_x')
--- keymap.set("n", "<Leader>p", '"0p')
--- keymap.set("n", "<Leader>P", '"0P')
--- keymap.set("v", "<Leader>p", '"0p')
--- keymap.set("n", "<Leader>c", '"_c')
--- keymap.set("n", "<Leader>C", '"_C')
--- keymap.set("v", "<Leader>c", '"_c')
--- keymap.set("v", "<Leader>C", '"_C')
--- keymap.set("n", "<Leader>d", '"_d')
--- keymap.set("n", "<Leader>D", '"_D')
--- keymap.set("v", "<Leader>d", '"_d')
--- keymap.set("v", "<Leader>D", '"_D')
 
 -- Increment/decrement
 keymap.set("n", "+", "<C-a>")
@@ -29,15 +11,8 @@ keymap.set("n", "dw", 'vb"_d')
 -- Select all
 keymap.set("n", "<C-a>", "gg<S-v>G")
 
--- Save with root permission (not working for now)
---vim.api.nvim_create_user_command('W', 'w !sudo tee > /dev/null %', {})
-
--- Disable continuations
--- keymap.set("n", "<Leader>o", "o<Esc>^Da", opts)
--- keymap.set("n", "<Leader>O", "O<Esc>^Da", opts)
-
 -- Jumplist
-
+-- <C-o> and <C-i>
 keymap.set("n", "<C-m>", "<C-i>", opts)
 
 -- New tab
@@ -52,22 +27,3 @@ keymap.set("n", "<M-h>", "<C-w>h")
 keymap.set("n", "<M-k>", "<C-w>k")
 keymap.set("n", "<M-j>", "<C-w>j")
 keymap.set("n", "<M-l>", "<C-w>l")
-
--- Resize window
-keymap.set("n", "<C-w><left>", "<C-w><")
-keymap.set("n", "<C-w><right>", "<C-w>>")
-keymap.set("n", "<C-w><up>", "<C-w>+")
-keymap.set("n", "<C-w><down>", "<C-w>-")
-keymap.set("n", "so", function()
-	require("oil").open_float()
-end, opts)
-
--- Diagnostics
-keymap.set("n", "<C-j>", function()
-	vim.diagnostic.goto_next()
-end, opts)
-
--- function
--- keymap.set("n", "<leader>fm", function()
--- 	require("telescope").extensions.media_files.media_files()
--- end)

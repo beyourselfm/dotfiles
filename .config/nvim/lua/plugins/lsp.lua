@@ -23,12 +23,29 @@ return {
 			local keys = require("lazyvim.plugins.lsp.keymaps").get()
 			keys[#keys + 1] = {
 				"gd",
+
+				-- false,
 				function()
 					-- DO NOT RESUSE WINDOW
 					require("telescope.builtin").lsp_definitions({ reuse_win = false })
 				end,
 				desc = "Goto Definition",
 				has = "definition",
+			}
+
+			keys[#keys + 1] = {
+				"<leader>cr",
+				false,
+			}
+
+			keys[#keys + 1] = {
+				"<leader>ca",
+				false,
+			}
+
+			keys[#keys + 1] = {
+				"K",
+				false,
 			}
 		end,
 		opts = {
@@ -48,12 +65,12 @@ return {
 							require("lazyvim.util").lsp.on_attach(function(_, buffer)
                 -- stylua: ignore
                 -- vim.keymap.set( "n", "<leader>co", "TypescriptOrganizeImports", { buffer = buffer, desc = "Organize Imports" })
-								vim.keymap.set(
-									"n",
-									"<leader>cR",
-									"TypescriptRenameFile",
-									{ desc = "Rename File", buffer = buffer }
-								)
+                vim.keymap.set(
+                  "n",
+                  "<leader>cR",
+                  "TypescriptRenameFile",
+                  { desc = "Rename File", buffer = buffer }
+                )
 							end)
 						end,
 					},
@@ -162,6 +179,48 @@ return {
 				},
 			},
 			setup = {},
+		},
+	},
+	{
+		"nvimdev/lspsaga.nvim",
+		config = function()
+			require("lspsaga").setup({
+				outline = {
+					enable = false,
+				},
+			})
+		end,
+		keys = {
+			{
+				"<leader>cr",
+				"<cmd>Lspsaga rename<cr>",
+				desc = "Rename",
+			},
+			{
+				"<leader>ca",
+				"<cmd>Lspsaga code_action<cr>",
+				desc = "Code action",
+			},
+			{
+				"K",
+				"<cmd>Lspsaga hover_doc<cr>",
+				silent = true,
+			},
+			{
+				"<leader>gp",
+				"<cmd>:Lspsaga peek_definition<cr>",
+				desc = "Peek definition",
+			},
+
+			{
+				"<leader>gP",
+				"<cmd>:Lspsaga peek_type_definition<cr>",
+				desc = "Peek type definition",
+			},
+		},
+		dependencies = {
+			"nvim-treesitter/nvim-treesitter", -- optional
+			"nvim-tree/nvim-web-devicons", -- optional
 		},
 	},
 }

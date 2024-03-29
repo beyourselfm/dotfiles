@@ -46,6 +46,7 @@ return {
 		},
 		keys = {
 			{
+
 				"<leader>fm",
 				function()
 					local telescope = require("telescope")
@@ -72,7 +73,7 @@ return {
 						hidden = true,
 					})
 				end,
-				desc = "Search Files",
+				desc = "Files",
 			},
 			{
 				";r",
@@ -82,7 +83,7 @@ return {
 						additional_args = { "--hidden" },
 					})
 				end,
-				desc = "Search Greps",
+				desc = "Greps",
 			},
 			{
 				"\\\\",
@@ -90,7 +91,7 @@ return {
 					local builtin = require("telescope.builtin")
 					builtin.buffers()
 				end,
-				desc = "Lists open buffers",
+				desc = "Buffers",
 			},
 			{
 				";t",
@@ -98,15 +99,27 @@ return {
 					local builtin = require("telescope.builtin")
 					builtin.help_tags()
 				end,
-				desc = "Lists available help tags and opens a new window with the relevant help info on <cr>",
+				desc = "Helps",
 			},
+
+			{
+				";c",
+				"<cmd>Telescope registers<cr>",
+				desc = "Regiters",
+			},
+			{
+				";b",
+				"<cmd>Telescope current_buffer_fuzzy_find<cr>",
+				desc = "Buffers",
+			},
+
 			{
 				";;",
 				function()
 					local builtin = require("telescope.builtin")
 					builtin.resume()
 				end,
-				desc = "Resume the previous telescope picker",
+				desc = "Run Last commands",
 			},
 			{
 				";e",
@@ -114,7 +127,7 @@ return {
 					local builtin = require("telescope.builtin")
 					builtin.diagnostics()
 				end,
-				desc = "Lists Diagnostics for all open buffers or a specific buffer",
+				desc = "Errors",
 			},
 			{
 				";s",
@@ -122,7 +135,7 @@ return {
 					local builtin = require("telescope.builtin")
 					builtin.treesitter()
 				end,
-				desc = "Lists Function names, variables, from Treesitter",
+				desc = "Functions",
 			},
 			{
 				"sf",
@@ -139,12 +152,12 @@ return {
 						respect_gitignore = false,
 						hidden = true,
 						grouped = true,
-						previewer = false,
+						previewer = true,
 						initial_mode = "normal",
 						layout_config = { height = 40 },
 					})
 				end,
-				desc = "Open File Browser with the path of the current buffer",
+				desc = "File Browser",
 			},
 		},
 		config = function(_, opts)
@@ -215,5 +228,16 @@ return {
 			require("telescope").load_extension("file_browser")
 			require("telescope").load_extension("media_files")
 		end,
+	},
+	{
+		"nvim-neo-tree/neo-tree.nvim",
+		branch = "v3.x",
+		cmd = "Neotree",
+		keys = {
+			{
+				"<leader>E",
+				false,
+			},
+		},
 	},
 }
