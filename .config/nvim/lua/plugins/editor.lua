@@ -1,5 +1,8 @@
 return {
 	{
+		"simrat39/symbols-outline.nvim",
+	},
+	{
 		"folke/flash.nvim",
 		---@type Flash.Config
 		opts = {
@@ -128,14 +131,6 @@ return {
 					builtin.diagnostics()
 				end,
 				desc = "Errors",
-			},
-			{
-				";s",
-				function()
-					local builtin = require("telescope.builtin")
-					builtin.treesitter()
-				end,
-				desc = "Functions",
 			},
 			{
 				"sf",

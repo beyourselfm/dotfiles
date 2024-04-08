@@ -12,6 +12,10 @@ return {
 				"tailwindcss-language-server",
 				"typescript-language-server",
 				"css-lsp",
+				-- c#
+				"omnisharp",
+				-- golang
+				"gopls",
 			})
 		end,
 	},
@@ -23,8 +27,6 @@ return {
 			local keys = require("lazyvim.plugins.lsp.keymaps").get()
 			keys[#keys + 1] = {
 				"gd",
-
-				-- false,
 				function()
 					-- DO NOT RESUSE WINDOW
 					require("telescope.builtin").lsp_definitions({ reuse_win = false })
@@ -34,12 +36,19 @@ return {
 			}
 
 			keys[#keys + 1] = {
-				"<leader>cr",
+				"gr",
 				false,
+				-- false,
+				-- function()
+				--   -- DO NOT RESUSE WINDOW
+				--   require("telescope.builtin").lsp_definitions({ reuse_win = false })
+				-- end,
+				-- desc = "Goto Definition",
+				-- has = "definition",
 			}
 
 			keys[#keys + 1] = {
-				"<leader>ca",
+				"<leader>cr",
 				false,
 			}
 
@@ -47,8 +56,14 @@ return {
 				"K",
 				false,
 			}
+
+			keys[#keys + 1] = {
+				"ca",
+				false,
+			}
 		end,
 		opts = {
+
 			inlay_hints = { enabled = true },
 			---@type lspconfig.options
 			servers = {
@@ -183,6 +198,7 @@ return {
 	},
 	{
 		"nvimdev/lspsaga.nvim",
+		event = "VeryLazy",
 		config = function()
 			require("lspsaga").setup({
 				outline = {
@@ -191,6 +207,20 @@ return {
 			})
 		end,
 		keys = {
+			{
+
+				"<leader>cI",
+				"<cmd>Lspsaga incoming_calls<cr>",
+				desc = "Incoming calls",
+			},
+
+			{
+
+				"<leader>cO",
+				"<cmd>Lspsaga outgoing_calls<cr>",
+				desc = "Outgoing calls",
+			},
+
 			{
 				"<leader>cr",
 				"<cmd>Lspsaga rename<cr>",
@@ -207,13 +237,13 @@ return {
 				silent = true,
 			},
 			{
-				"<leader>gp",
+				"<leader>cp",
 				"<cmd>:Lspsaga peek_definition<cr>",
 				desc = "Peek definition",
 			},
 
 			{
-				"<leader>gP",
+				"<leader>cP",
 				"<cmd>:Lspsaga peek_type_definition<cr>",
 				desc = "Peek type definition",
 			},

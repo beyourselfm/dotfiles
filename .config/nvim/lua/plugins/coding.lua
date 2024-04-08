@@ -94,6 +94,7 @@ return {
 	{
 		"nvim-cmp",
 		dependencies = { "hrsh7th/cmp-emoji" },
+
 		opts = function(_, opts)
 			table.insert(opts.sources, { name = "emoji" })
 		end,
@@ -112,6 +113,11 @@ return {
 	-- disable mini.surround, use nvim-surround instead
 	{
 		"mini.surround",
+		-- {
+		--   key = "<c-]>",
+		--   func = require("navigator.definition").definition,
+		--   desc = "definition",
+		-- },
 		enabled = false,
 	},
 }

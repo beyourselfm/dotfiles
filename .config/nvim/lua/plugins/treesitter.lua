@@ -24,6 +24,7 @@ return {
 				"scss",
 				"sql",
 				"svelte",
+				"c_sharp",
 			},
 
 			-- matchup = {
