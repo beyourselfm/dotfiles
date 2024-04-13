@@ -1,5 +1,4 @@
-set fish_greeting ""
-
+set fish_greeting "Hi~~~~~~~~~~"
 
 starship init fish | source
 
@@ -20,13 +19,11 @@ set proxy_auth false
 alias n='nvim'
 
 # Fzf
-set -g FZF_PREVIEW_FILE_CMD "bat --style=numbers --color=always --line-range :500"
+set -g FZF_PREVIEW_FILE_CMD "bat --style=numbers --color=always --li :500"
 set -g FZF_LEGACY_KEYBINDINGS 0
 
-# lsd
-alias ls='lsd'
-alias ll='ls -l --icon auto'
-alias lla='ll -a'
 
 # fzf shorcuts
-fzf_configure_bindings --git_status=\cg --history=\ch --processes=\cp --directory=\co --history=\cr --variables=\e\cv
+fzf_configure_bindings --history=\ch --directory=\co --history=\cr
+
+fish_config theme choose "Rosé Pine"

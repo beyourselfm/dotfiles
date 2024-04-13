@@ -1,13 +1,6 @@
 local keymap = vim.keymap
 local opts = { noremap = true, silent = true }
 
--- Increment/decrement
-keymap.set("n", "+", "<C-a>")
-keymap.set("n", "-", "<C-x>")
-
--- Delete a word backwards
-keymap.set("n", "dw", 'vb"_d')
-
 -- Select all
 keymap.set("n", "<C-a>", "gg<S-v>G")
 
@@ -22,11 +15,6 @@ keymap.set("n", "<s-tab>", ":tabprev<Return>", opts)
 -- Split window
 keymap.set("n", "ss", ":split<Return>", opts)
 keymap.set("n", "sv", ":vsplit<Return>", opts)
--- Move window
-keymap.set("n", "<M-h>", "<C-w>h")
-keymap.set("n", "<M-k>", "<C-w>k")
-keymap.set("n", "<M-j>", "<C-w>j")
-keymap.set("n", "<M-l>", "<C-w>l")
 
 -- Resize window
 keymap.set("n", "<C-w><left>", "<C-w><")
@@ -34,12 +22,19 @@ keymap.set("n", "<C-w><right>", "<C-w>>")
 keymap.set("n", "<C-w><up>", "<C-w>+")
 keymap.set("n", "<C-w><down>", "<C-w>-")
 
--- -- Oil.nvim
--- keymap.set("n", "so", function()
--- 	require("oil").open_float()
--- end, opts)
+-- tmux
+keymap.set("n", "<C-h>", "<cmd>TmuxNavigateLeft<cr>", {
+	remap = true,
+})
 
--- Diagnostics
-keymap.set("n", "<C-j>", function()
-	vim.diagnostic.goto_next()
-end, opts)
+keymap.set("n", "<C-l>", "<cmd>TmuxNavigateRight<cr>", {
+	remap = true,
+})
+
+keymap.set("n", "<C-j>", "<cmd>TmuxNavigateDown<cr>", {
+	remap = true,
+})
+
+keymap.set("n", "<C-k>", "<cmd>TmuxNavigateUp<cr>", {
+	remap = true,
+})

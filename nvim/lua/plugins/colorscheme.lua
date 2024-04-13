@@ -2,16 +2,15 @@ return {
 	{
 		"rose-pine/neovim",
 		name = "rose-pine",
-		lazy = true,
 		priority = 1000,
-		opts = function()
-			return {
-				dark_variant = "moon",
+		config = function()
+			require("rose-pine").setup({
 				styles = {
-					italic = false,
 					transparency = true,
+					italic = false,
 				},
-			}
+			})
 		end,
 	},
+	-- ,
 }
