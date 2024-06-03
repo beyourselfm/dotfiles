@@ -1,0 +1,12 @@
+{
+  "pug mixin": {
+    "prefix": "d",
+    "body": [
+      "mixin $1()",
+      "  .$1(class=`$2`)&attributes(attributes)",
+      "     block",
+      ""
+    ],
+    "description": "pug mixin"
+  }
+}

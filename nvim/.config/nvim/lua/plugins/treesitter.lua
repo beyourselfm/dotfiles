@@ -1,0 +1,30 @@
+return {
+	{
+		"nvim-treesitter/nvim-treesitter",
+		opts = {
+			ensure_installed = {
+				"jsonc",
+				"diff",
+				"tsx",
+				"typescript",
+				"tsx",
+				"javascript",
+				"astro",
+				"cmake",
+				"cpp",
+				"css",
+				"fish",
+				"gitignore",
+				"go",
+				"graphql",
+				"http",
+				"java",
+				"php",
+				"rust",
+				"scss",
+				"sql",
+				"svelte",
+			},
+		},
+	},
+}
