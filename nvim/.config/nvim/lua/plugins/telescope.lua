@@ -7,18 +7,8 @@ return {
 				build = "make",
 			},
 			"nvim-telescope/telescope-file-browser.nvim",
-			-- media file require
-			"nvim-lua/popup.nvim",
-			"nvim-telescope/telescope-media-files.nvim",
 		},
 		keys = {
-			{
-				"<leader>fp",
-				function()
-					require("telescope").extensions.media_files.media_files()
-				end,
-				desc = "Find Media File",
-			},
 			{
 				"<leader>fP",
 				function()
@@ -184,15 +174,6 @@ return {
 				-- 		},
 				-- 	},
 				-- },
-				media_files = {
-					filetypes = {
-						"png",
-						"jpg",
-						"svg",
-						"jpeg",
-						"webp",
-					},
-				},
 			}
 			telescope.setup(opts)
 			require("telescope").load_extension("fzf")
