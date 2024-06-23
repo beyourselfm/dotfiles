@@ -45,6 +45,7 @@ return {
 					cmd = { "unocss-language-server", "--stdio" },
 					filetypes = {
 						"html",
+						"pug",
 						"javascriptreact",
 						"rescript",
 						"typescriptreact",

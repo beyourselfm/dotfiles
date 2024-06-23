@@ -32,9 +32,9 @@ require("lazy").setup({
 		{ import = "lazyvim.plugins.extras.lang.vue" },
 		{ import = "lazyvim.plugins.extras.lang.clangd" },
 		{ import = "lazyvim.plugins.extras.lang.cmake" },
-		{ import = "lazyvim.plugins.extras.lang.json" },
+		-- { import = "lazyvim.plugins.extras.lang.json" },
 		{ import = "lazyvim.plugins.extras.lang.markdown" },
-		{ import = "lazyvim.plugins.extras.lang.yaml" },
+		-- { import = "lazyvim.plugins.extras.lang.yaml" },
 
 		-- debug
 		{ import = "lazyvim.plugins.extras.dap.core" },
@@ -51,6 +51,7 @@ require("lazy").setup({
 		{ import = "lazyvim.plugins.extras.coding.mini-surround" },
 		{ import = "lazyvim.plugins.extras.coding.yanky" },
 		{ import = "lazyvim.plugins.extras.coding.copilot" },
+		{ import = "lazyvim.plugins.extras.coding.neogen" },
 		-- { import = "lazyvim.plugins.extras.coding.copilot-chat" },
 
 		-- ui
@@ -59,6 +60,7 @@ require("lazy").setup({
 
 		-- util
 		{ import = "lazyvim.plugins.extras.util.mini-hipatterns" },
+		{ import = "lazyvim.plugins.extras.util.project" },
 		{ import = "plugins" },
 	},
 	defaults = {

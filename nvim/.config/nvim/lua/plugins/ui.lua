@@ -110,12 +110,12 @@ return {
 			logo = string.rep("\n", 4) .. logo .. "\n\n"
 			opts.config.header = vim.split(logo, "\n")
 			opts.config.center = {
-				{
-					action = LazyVim.telescope("files"),
-					desc = " Find file",
-					icon = " ",
-					key = "f",
-				},
+				-- {
+				-- 	action = LazyVim.pick.telescope("files"),
+				-- 	desc = " Find file",
+				-- 	icon = " ",
+				-- 	key = "f",
+				-- },
 				{
 					action = "ene | startinsert",
 					desc = " New file",

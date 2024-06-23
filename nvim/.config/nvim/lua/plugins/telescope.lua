@@ -137,6 +137,7 @@ return {
 					"package-lock.json",
 					"pnpm-lock.yaml",
 					"lazy-lock.json",
+					".history",
 				},
 			})
 			opts.pickers = {
@@ -178,7 +179,6 @@ return {
 			telescope.setup(opts)
 			require("telescope").load_extension("fzf")
 			require("telescope").load_extension("file_browser")
-			require("telescope").load_extension("media_files")
 		end,
 	},
 }
