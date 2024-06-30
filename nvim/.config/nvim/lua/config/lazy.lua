@@ -44,6 +44,7 @@ require("lazy").setup({
 		{ import = "lazyvim.plugins.extras.editor.aerial" },
 		{ import = "lazyvim.plugins.extras.editor.mini-files" },
 		{ import = "lazyvim.plugins.extras.editor.illuminate" },
+		{ import = "lazyvim.plugins.extras.editor.overseer" },
 
 		-- coding
 		{ import = "lazyvim.plugins.extras.linting.eslint" },
