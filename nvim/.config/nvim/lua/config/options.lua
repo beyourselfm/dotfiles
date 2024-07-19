@@ -42,3 +42,6 @@ vim.opt.formatoptions:append({ "r" })
 
 vim.cmd([[au BufNewFile,BufRead *.astro setf astro]])
 vim.cmd([[au BufNewFile,BufRead Podfile setf ruby]])
+
+vim.g.lazyvim_picker = "fzf"
+vim.g.lazyvim_prettier_needs_config = true

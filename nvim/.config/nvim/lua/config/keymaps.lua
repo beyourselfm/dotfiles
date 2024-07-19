@@ -25,13 +25,6 @@ keymap.set("n", "<leader>wo", "<cmd>:only<cr>", {
 	desc = "Close other windows",
 })
 
--- neogen
-keymap.set("n", "<Leader>nc", "<cmd>:lua require('neogen').generate()<CR>", {
-	noremap = true,
-	silent = true,
-	desc = "Neogen",
-})
-
 -- tmux
 keymap.set("n", "<C-h>", "<cmd>TmuxNavigateLeft<cr>", {
 	remap = true,
@@ -46,12 +39,5 @@ keymap.set("n", "<C-j>", "<cmd>TmuxNavigateDown<cr>", {
 })
 
 keymap.set("n", "<C-k>", "<cmd>TmuxNavigateUp<cr>", {
-	remap = true,
-})
-
--- eslint
-keymap.set("n", "<leader>es", "<cmd>EslintFixAll<cr>", {
-	desc = "Eslint fix",
-	silent = true,
 	remap = true,
 })

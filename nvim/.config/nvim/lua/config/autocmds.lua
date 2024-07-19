@@ -12,19 +12,3 @@ vim.api.nvim_create_autocmd("FileType", {
 		vim.opt.conceallevel = 0
 	end,
 })
-
--- Disable autoformat for js,ts files
-vim.api.nvim_create_autocmd({ "FileType" }, {
-	pattern = {
-		"javascript",
-		"javascriptreact",
-		"javascript.jsx",
-		"typescript",
-		"typescriptreact",
-		"typescript.tsx",
-		"vue",
-	},
-	callback = function()
-		vim.b.autoformat = false
-	end,
-})
