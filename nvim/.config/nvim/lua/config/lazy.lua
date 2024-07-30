@@ -45,7 +45,6 @@ require("lazy").setup({
 		{ import = "lazyvim.plugins.extras.editor.aerial" },
 		{ import = "lazyvim.plugins.extras.editor.illuminate" },
 		{ import = "lazyvim.plugins.extras.editor.overseer" },
-		{ import = "lazyvim.plugins.extras.editor.navic" },
 
 		-- coding
 		{ import = "lazyvim.plugins.extras.linting.eslint" },
@@ -55,7 +54,7 @@ require("lazy").setup({
 		{ import = "lazyvim.plugins.extras.coding.copilot-chat" },
 		{ import = "lazyvim.plugins.extras.coding.copilot" },
 		{ import = "lazyvim.plugins.extras.coding.neogen" },
-		{ import = "lazyvim.plugins.extras.editor.mini-files" },
+		-- { import = "lazyvim.plugins.extras.editor.mini-files" },
 
 		-- ui
 		{ import = "lazyvim.plugins.extras.ui.mini-indentscope" },
