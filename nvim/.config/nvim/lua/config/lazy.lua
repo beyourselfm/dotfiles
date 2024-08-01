@@ -42,7 +42,8 @@ require("lazy").setup({
 
 		-- editor
 		{ import = "lazyvim.plugins.extras.editor.refactoring" },
-		{ import = "lazyvim.plugins.extras.editor.aerial" },
+		{ import = "lazyvim.plugins.extras.editor.harpoon2" },
+		-- { import = "lazyvim.plugins.extras.editor.aerial" },
 		{ import = "lazyvim.plugins.extras.editor.illuminate" },
 		{ import = "lazyvim.plugins.extras.editor.overseer" },
 
@@ -63,6 +64,7 @@ require("lazy").setup({
 		-- util
 		{ import = "lazyvim.plugins.extras.util.mini-hipatterns" },
 		{ import = "lazyvim.plugins.extras.util.project" },
+		{ import = "lazyvim.plugins.extras.util.rest" },
 		{ import = "plugins" },
 	},
 	defaults = {

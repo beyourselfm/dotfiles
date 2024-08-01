@@ -46,7 +46,7 @@ yabai -m config \
 # 浮动式窗口
 systemApp='^(System Settings|System Preferences|System Information|Finder|Calendar|Mail|App Store|Activity Monitor|Dictionary)$'
 
-manageOffApp='^(IINA|Stats|LICEcap|QQ|ChatGPT|WeChat|Anki)$'
+manageOffApp='^(IINA|Stats|LICEcap|QQ|ChatGPT|WeChat|Anki|NetEaseMusic)$'
 
 yabai -m rule --add app="${systemApp}|${manageOffApp}" manage=off
 
