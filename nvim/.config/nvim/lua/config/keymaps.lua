@@ -20,6 +20,8 @@ keymap.set("n", "<leader>wo", "<cmd>:only<cr>", {
 	desc = "Close other windows",
 })
 
+keymap.set("n", "<leader>bd", "<cmd>:Bdelete<cr>", { desc = "Delete current buffer", remap = true })
+
 -- tmux
 keymap.set("n", "<C-h>", "<cmd>TmuxNavigateLeft<cr>", {
 	remap = true,

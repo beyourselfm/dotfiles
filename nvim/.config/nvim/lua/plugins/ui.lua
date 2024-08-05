@@ -1,9 +1,5 @@
 return {
 	{
-		"nvim-neo-tree/neo-tree.nvim",
-		enabled = false,
-	},
-	{
 		"rcarriga/nvim-notify",
 		timeout = 5000,
 		opts = {
@@ -65,47 +61,49 @@ return {
 	},
 	{
 		"nvimdev/dashboard-nvim",
-		event = "VimEnter",
-		opts = function(_, opts)
-			local logo = [[
-  ▄▄▄▄    ▓█████    ▓██   ██▓ ▒█████   █    ██  ██▀███    ██████  ▓█████  ██▓    ▒ ████▒
- ▓█████▄  ▓█   ▀     ▒██  ██▒▒██▒  ██▒ ██  ▓██▒▓██ ▒ ██▒▒██    ▒  ▓█   ▀ ▓██▒   ▒▓██    
- ▒██▒ ▄██ ▒███        ▒██ ██░▒██░  ██▒▓██  ▒██░▓██ ░▄█ ▒░ ▓██▄    ▒███   ▒██░   ░▒████  
- ▒██░█▀   ▒▓█  ▄      ░ ▐██▓░▒██   ██░▓▓█  ░██░▒██▀▀█▄    ▒   ██▒ ▒▓█  ▄ ▒██░   ░░▓█▒   
-▒░▓█  ▀█▓▒░▒████      ░ ██▒▓░░ ████▓▒░▒▒█████▓ ░██▓ ▒██▒▒██████▒▒▒░▒████▒░██████ ░▒█░   
-░░▒▓███▀▒░░░ ▒░        ██▒▒▒ ░ ▒░▒░▒░ ░▒▓▒ ▒ ▒ ░ ▒▓ ░▒▓░▒ ▒▓▒ ▒ ░░░░ ▒░ ░░ ▒░▓    ▒ ░   
-░▒░▒   ░ ░ ░ ░       ▓██ ░▒░   ░ ▒ ▒░ ░░▒░ ░ ░   ░▒ ░ ▒ ░ ░▒  ░ ░░ ░ ░  ░░ ░ ▒    ░     
-  ░    ░     ░       ▒ ▒ ░░  ░ ░ ░ ▒   ░░░ ░ ░   ░░   ░ ░  ░  ░      ░     ░ ░    ░ ░   
-░ ░      ░   ░       ░ ░         ░ ░     ░        ░           ░  ░   ░  ░    ░          
-      ]]
-			logo = string.rep("\n", 4) .. logo .. "\n\n"
-			opts.config.header = vim.split(logo, "\n")
-			opts.config.center = {
-				-- {
-				-- 	action = LazyVim.pick.telescope("files"),
-				-- 	desc = " Find file",
-				-- 	icon = " ",
-				-- 	key = "f",
-				-- },
-				{
-					action = "ene | startinsert",
-					desc = " New file",
-					icon = " ",
-					key = "n",
-				},
-				{
-					action = "Telescope oldfiles",
-					desc = " Recent files",
-					icon = " ",
-					key = "r",
-				},
-				{
-					action = "qa",
-					desc = " Quit",
-					icon = " ",
-					key = "q",
-				},
-			}
-		end,
+		enabled = false,
+
+		-- event = "VimEnter",
+		-- opts = function(_, opts)
+		-- 	local logo = [[
+		--   ▄▄▄▄    ▓█████    ▓██   ██▓ ▒█████   █    ██  ██▀███    ██████  ▓█████  ██▓    ▒ ████▒
+		--  ▓█████▄  ▓█   ▀     ▒██  ██▒▒██▒  ██▒ ██  ▓██▒▓██ ▒ ██▒▒██    ▒  ▓█   ▀ ▓██▒   ▒▓██
+		--  ▒██▒ ▄██ ▒███        ▒██ ██░▒██░  ██▒▓██  ▒██░▓██ ░▄█ ▒░ ▓██▄    ▒███   ▒██░   ░▒████
+		--  ▒██░█▀   ▒▓█  ▄      ░ ▐██▓░▒██   ██░▓▓█  ░██░▒██▀▀█▄    ▒   ██▒ ▒▓█  ▄ ▒██░   ░░▓█▒
+		-- ▒░▓█  ▀█▓▒░▒████      ░ ██▒▓░░ ████▓▒░▒▒█████▓ ░██▓ ▒██▒▒██████▒▒▒░▒████▒░██████ ░▒█░
+		-- ░░▒▓███▀▒░░░ ▒░        ██▒▒▒ ░ ▒░▒░▒░ ░▒▓▒ ▒ ▒ ░ ▒▓ ░▒▓░▒ ▒▓▒ ▒ ░░░░ ▒░ ░░ ▒░▓    ▒ ░
+		-- ░▒░▒   ░ ░ ░ ░       ▓██ ░▒░   ░ ▒ ▒░ ░░▒░ ░ ░   ░▒ ░ ▒ ░ ░▒  ░ ░░ ░ ░  ░░ ░ ▒    ░
+		--   ░    ░     ░       ▒ ▒ ░░  ░ ░ ░ ▒   ░░░ ░ ░   ░░   ░ ░  ░  ░      ░     ░ ░    ░ ░
+		-- ░ ░      ░   ░       ░ ░         ░ ░     ░        ░           ░  ░   ░  ░    ░
+		--       ]]
+		-- 	logo = string.rep("\n", 4) .. logo .. "\n\n"
+		-- 	opts.config.header = vim.split(logo, "\n")
+		-- 	opts.config.center = {
+		-- 		-- {
+		-- 		-- 	action = LazyVim.pick.telescope("files"),
+		-- 		-- 	desc = " Find file",
+		-- 		-- 	icon = " ",
+		-- 		-- 	key = "f",
+		-- 		-- },
+		-- 		{
+		-- 			action = "ene | startinsert",
+		-- 			desc = " New file",
+		-- 			icon = " ",
+		-- 			key = "n",
+		-- 		},
+		-- 		{
+		-- 			action = "Telescope oldfiles",
+		-- 			desc = " Recent files",
+		-- 			icon = " ",
+		-- 			key = "r",
+		-- 		},
+		-- 		{
+		-- 			action = "qa",
+		-- 			desc = " Quit",
+		-- 			icon = " ",
+		-- 			key = "q",
+		-- 		},
+		-- 	}
+		-- end,
 	},
 }
