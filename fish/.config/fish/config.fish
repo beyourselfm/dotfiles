@@ -44,6 +44,7 @@ alias ls="eza --color=always --long --git --no-filesize --icons=always --no-time
 
 alias age='gh copilot explain'
 alias ags="gh copilot suggest"
+alias tmux="tmux -f ~/.config/tmux/tmux.conf"
 
 # tldr
 alias t="tldr"

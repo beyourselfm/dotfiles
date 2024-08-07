@@ -18,10 +18,12 @@ require("lazy").setup({
 			"LazyVim/LazyVim",
 			import = "lazyvim.plugins",
 			opts = {
-				colorscheme = "catppuccin-mocha",
+				colorscheme = "catppuccin",
+				defaults = {
+					keymaps = false, -- lazyvim.config.keymaps
+				},
 				news = {
 					lazyvim = true,
-					neovim = true,
 				},
 			},
 		},
@@ -42,10 +44,11 @@ require("lazy").setup({
 
 		-- editor
 		{ import = "lazyvim.plugins.extras.editor.refactoring" },
-		{ import = "lazyvim.plugins.extras.editor.harpoon2" },
+		-- { import = "lazyvim.plugins.extras.editor.harpoon2" },
 		-- { import = "lazyvim.plugins.extras.editor.aerial" },
 		{ import = "lazyvim.plugins.extras.editor.illuminate" },
 		{ import = "lazyvim.plugins.extras.editor.overseer" },
+		{ import = "lazyvim.plugins.extras.editor.inc-rename" },
 
 		-- coding
 		{ import = "lazyvim.plugins.extras.formatting.prettier" },
@@ -58,6 +61,7 @@ require("lazy").setup({
 		-- { import = "lazyvim.plugins.extras.editor.mini-files" },
 
 		-- ui
+		{ import = "lazyvim.plugins.extras.ui.treesitter-context" },
 		{ import = "lazyvim.plugins.extras.ui.mini-indentscope" },
 		-- { import = "lazyvim.plugins.extras.ui.mini-animate" },
 

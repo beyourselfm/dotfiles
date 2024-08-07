@@ -1,6 +1,7 @@
 return {
 	{
 		"stevearc/oil.nvim",
+		event = "VeryLazy",
 		opts = {},
 		dependencies = { { "echasnovski/mini.icons", opts = {} } },
 		config = function()
@@ -58,20 +59,20 @@ return {
 				-- Set to `false` to remove a keymap
 				-- See :help oil-actions for a list of all available actions
 				keymaps = {
-					["g?"] = "actions.show_help",
+					["?"] = "actions.show_help",
 					["<CR>"] = "actions.select",
 					["<C-t>"] = { "actions.select", opts = { tab = true }, desc = "Open the entry in new tab" },
 					["<C-p>"] = "actions.preview",
-					["="] = "actions.close",
-					["<C-l>"] = "actions.refresh",
+					["q"] = "actions.close",
+					["r"] = "actions.refresh",
 					["-"] = "actions.parent",
 					["_"] = "actions.open_cwd",
 					["`"] = "actions.cd",
 					["~"] = { "actions.cd", opts = { scope = "tab" }, desc = ":tcd to the current oil directory" },
-					["gs"] = "actions.change_sort",
-					["gx"] = "actions.open_external",
-					["g."] = "actions.toggle_hidden",
-					["g\\"] = "actions.toggle_trash",
+					["s"] = "actions.change_sort",
+					["x"] = "actions.open_external",
+					["."] = "actions.toggle_hidden",
+					["\\"] = "actions.toggle_trash",
 				},
 				-- Set to false to disable all of the above keymaps
 				use_default_keymaps = false,

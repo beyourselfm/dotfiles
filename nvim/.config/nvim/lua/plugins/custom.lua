@@ -3,12 +3,6 @@ return {
 		"simrat39/symbols-outline.nvim",
 		enabled = false,
 	},
-
-	{
-		"smjonas/inc-rename.nvim",
-		enabled = false,
-	},
-
 	{
 		"digitaltoad/vim-pug",
 	},
@@ -86,10 +80,18 @@ return {
 	},
 	{
 		"Wansmer/treesj",
-		keys = { "<space>ch", "<space>cj", "<space>ck" },
+		event = "VeryLazy",
 		dependencies = { "nvim-treesitter/nvim-treesitter" }, -- if you install parsers with `nvim-treesitter`
 		config = function()
 			require("treesj").setup({--[[ your config ]]
+				use_default_keymaps = false,
+			})
+			vim.keymap.set("n", "<leader>m", require("treesj").toggle, { desc = "Treesj toggle" })
+			-- For extending default preset with `recursive = true`
+			vim.keymap.set("n", "<leader>M", function()
+				require("treesj").toggle({ split = { recursive = true } })
+			end, {
+				desc = "Treesj toggle(recursive)",
 			})
 		end,
 	},
